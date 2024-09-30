@@ -1,4 +1,3 @@
-```markdown
 # Documentation Technique pour la Connexion à Fidecoin  
 ## Protocole CAISSE_AP_V3.20
 
@@ -26,11 +25,53 @@ Le protocole utilise un format **TLV** (Type-Length-Value) où chaque message a 
 
 #### Exemple de message TLV :
 ```plaintext
-CZ0040310
+CZ0040310CJ012247300123456CA00201CB0040300CD0011CE003978BH01118295910399BI020your.email@gmail.comCK003120
 ```
-- **CZ** : Version du protocole.
-- **004** : Longueur (4 caractères).
-- **0310** : Version du protocole 3.10.
+- **CZ0040310**  
+  - **Type**: `CZ` (Version Protocol)  
+  - **Length**: 004  
+  - **Value**: 0125 (Version 3.10)
+
+- **CJ012247300123456**  
+  - **Type**: `CJ` (Cashbox Identifier)  
+  - **Length**: 012  
+  - **Value**: 247300123456
+
+- **CA00201**  
+  - **Type**: `CA` (Cashbox Number)  
+  - **Length**: 002  
+  - **Value**: 01 (Cashbox 01)
+
+- **CB0040300**  
+  - **Type**: `CB` (Amount)  
+  - **Length**: 004  
+  - **Value**: 0300 (Amount: 3.00 EUR)
+
+- **CD0011**  
+  - **Type**: `CD` (Action Type)  
+  - **Length**: 001  
+  - **Value**: 1 (Credit Action)
+
+- **CE003978**  
+  - **Type**: `CE` (Currency)  
+  - **Length**: 003  
+  - **Value**: 978 (Currency: EUR)
+
+- **BH011133674790730**  
+  - **Type**: `BH` (Client Phone Number)  
+  - **Length**: 011  
+  - **Value**: 33674790730
+
+- **BI020your.email@gmail.com**  
+  - **Type**: `BI` (Client Email)  
+  - **Length**: 020  
+  - **Value**: your.email@gmail.com
+
+- **CK003120**  
+  - **Type**: `CK` (Cashbox Receipt)  
+  - **Length**: 003  
+  - **Value**: 120 (Receipt reference)
+
 
 #### 3.1 Règles d'Utilisation
 - Les tags de longueur nulle ne sont pas transmis.
